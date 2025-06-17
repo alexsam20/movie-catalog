@@ -1,6 +1,7 @@
 <?php
 //var_dump($_SERVER);
 define("ROOT", dirname(__DIR__));
+const DEBUG = 1;
 const WWW = ROOT . '/public';
 const APP = ROOT . '/app';
 const CORE = ROOT . '/app/core';
