@@ -1,6 +1,6 @@
 <?php
 
-namespace movie;
+namespace app\core;
 
 use RuntimeException;
 
@@ -48,6 +48,7 @@ class Router
                 $controllerObject = new $controller(self::$route);
 //                $controllerObject->getModel();
                 $action = self::lowerCamelCase(self::$route['action'] . 'Action');
+                dump(self::$route);
                 if (method_exists($controllerObject, $action)) {
                     $controllerObject->$action();
 //                    $controllerObject->getView();

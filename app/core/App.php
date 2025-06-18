@@ -1,13 +1,14 @@
 <?php
 
-namespace movie;
+namespace app\core;
+use Exception;
 
 class App
 {
     public static Registry $app;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct()
     {

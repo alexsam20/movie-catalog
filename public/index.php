@@ -11,8 +11,8 @@ require_once dirname(__DIR__) . '/config/init.php';
 require_once HELPERS . '/functions.php';
 require_once CONFIG . '/routes.php';
 
-new \movie\App();
+new \app\core\App();
 
-dd(\movie\Router::getRoutes());
+dd(\app\core\Router::getRoutes());
 
 

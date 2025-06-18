@@ -1,6 +1,6 @@
 <?php
 
-namespace movie;
+namespace app\core;
 
 class Registry
 {
