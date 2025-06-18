@@ -2,7 +2,6 @@
 
 namespace app\core;
 
-use JetBrains\PhpStorm\NoReturn;
 use Throwable;
 
 class ErrorHandler
@@ -20,7 +19,6 @@ class ErrorHandler
         register_shutdown_function([$this, 'fatalErrorHandler']);
     }
 
-    #[NoReturn]
     public function errorHandler($errno, $errstr, $errfile, $errline): void
     {
         $this->logError($errstr, $errfile, $errline);
@@ -39,7 +37,6 @@ class ErrorHandler
         }
     }
 
-    #[NoReturn]
     public function exceptionHandler(Throwable $e): void
     {
         $this->logError($e->getMessage(), $e->getFile(), $e->getLine());
@@ -55,7 +52,6 @@ class ErrorHandler
         );
     }
 
-    #[NoReturn]
     protected function displayError($errno, $errstr, $errfile, $errline, $response = 500): void
     {
         if (0 == $response) {
