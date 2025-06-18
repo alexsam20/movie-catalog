@@ -14,6 +14,7 @@ class App
         new ErrorHandler();
         self::$app = Registry::getInstance();
         $this->getParams();
+        Router::dispatch($this->queryHttpString());
     }
 
     protected function getParams(): void
@@ -26,5 +27,10 @@ class App
                 }
             }
         }
+    }
+
+    public function queryHttpString(): string
+    {
+        return trim(urldecode($_SERVER['REQUEST_URI']), '/');
     }
 }
