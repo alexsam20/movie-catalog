@@ -38,7 +38,6 @@ class Router
 
     public static function dispatch($url): void
     {
-        dump($url);
         $url = self::removeQueryString($url);
         if (self::matchRoute($url)) {
             /*if (!empty(self::$route['lang'])) {
@@ -50,10 +49,9 @@ class Router
                 $controllerObject = new $controller(self::$route);
                 $controllerObject->getModel();
                 $action = self::lowerCamelCase(self::$route['action'] . 'Action');
-                dump(self::$route);
                 if (method_exists($controllerObject, $action)) {
                     $controllerObject->$action();
-//                    $controllerObject->getView();
+                    $controllerObject->getView();
                 } else {
                     throw new RuntimeException("Method {$controller}::{$action} not found", 404);
                 }

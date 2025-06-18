@@ -13,6 +13,4 @@ require_once CONFIG . '/routes.php';
 
 new \app\core\App();
 
-dd(\app\core\Router::getRoutes());
-
 
