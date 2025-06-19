@@ -8,6 +8,7 @@ class MainController extends Controller
 {
     public function indexAction()
     {
-//        $this->layout = 'default';
+        $this->setMeta('Main page', 'Description', 'Keywords');
+//        $this->setData(['test' => 'Shmocic']);
     }
 }

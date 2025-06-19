@@ -22,7 +22,9 @@ class View
 
     public function render($data): void
     {
-        if (is_array($data)) extract($data);
+        if (is_array($data)) {
+            extract($data);
+        }
         $prefix = str_replace('\\', '/', $this->route['admin_prefix']);
         $viewFile = APP . "/views/{$prefix}{$this->route['controller']}/{$this->view}.php";
         if (is_file($viewFile)) {
@@ -41,6 +43,15 @@ class View
                 throw new RuntimeException("File template {$layoutFile} not found", 500);
             }
         }
+    }
+
+    public function getMeta(): string
+    {
+        $out = '<title>' . App::$app::getProperty('site_name') . ' :: ' . htmlspecialchars($this->meta['title']) . '</title>' . PHP_EOL;
+        $out .= "\t" . '<meta name="description" content="' . htmlspecialchars($this->meta['description']) . '">' . PHP_EOL;
+        $out .= "\t" . '<meta name="keywords" content="' . htmlspecialchars($this->meta['keywords']) . '">' . PHP_EOL;
+
+        return $out;
     }
 
 }

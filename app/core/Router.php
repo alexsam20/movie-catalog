@@ -81,7 +81,6 @@ class Router
                     $route['admin_prefix'] .= '\\';
                 }
                 $route['controller'] = self::upperCamelCase($route['controller']);
-                //dump($route);
                 self::$route = $route;
 
                 return true;
